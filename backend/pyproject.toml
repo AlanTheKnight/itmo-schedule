@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "backend"
+version = "1.0.0"
+description = ""
+authors = ["Maksim Gusev <51376126+AlanTheKnight@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.5"
+djangorestframework = "^3.14.0"
+requests = "^2.31.0"
+icalendar = "^5.0.7"
+celery = "^5.3.4"
+gunicorn = "^21.2.0"
+redis = "^5.0.0"
+django-cors-headers = "^4.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
