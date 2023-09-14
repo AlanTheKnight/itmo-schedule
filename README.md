@@ -9,11 +9,11 @@ by Ilya Burakov, licensed under MIT License. Code from his project can be found 
 
 ## API
 
-### Get schedule for the given period
+### Create a task for retrieving a schedule for the given period
 
 ```POST /api/schedule/create```
 
-Data:
+Request body:
 
 ```json
 {
@@ -21,5 +21,43 @@ Data:
     "password": "<password>",
     "date_start": "2023-09-04",
     "date_end": "2023-10-01"
+}
+```
+
+Response interface:
+
+```typescript
+export interface ScheduleRequest {
+  id: number;
+  schedule_json: string;
+  ics_file: null | string;
+  generated_at: string;
+  status:
+    | "status.Queued"
+    | "status.InProgress"
+    | "status.Ready"
+    | "status.Failed";
+  error: null | string;
+}
+```
+
+### Get a task by id
+
+```GET /api/schedule/<id>```
+
+Response interface:
+
+```typescript
+export interface ScheduleRequest {
+  id: number;
+  schedule_json: string;
+  ics_file: null | string;
+  generated_at: string;
+  status:
+    | "status.Queued"
+    | "status.InProgress"
+    | "status.Ready"
+    | "status.Failed";
+  error: null | string;
 }
 ```
